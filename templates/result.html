@@ -80,6 +80,7 @@ body {
           cursor: pointer;
           outline: none;
             position: relative;
+            margin-top: 10px;
           }
 
         .button:hover {
@@ -87,22 +88,35 @@ body {
           box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
           color: #fff;
           transform: translateY(-7px);
-        }
-        input[type="text"] {
-	  margin-bottom: -1px;
-	  border-bottom-left-radius: 0;
-	  border-bottom-right-radius: 0;
-	}
-        	.form-control {
-	  position: relative;
-	  font-size: 12px;
-	  height: auto;
-	  padding: 5px;
-	}
+        }input {
+	width: 90%;
+	margin-bottom: 10px;
+	background: rgba(0,0,0,0.6);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
 
     </style>
 </head>
 <body>
+<script>
+function flipCard() {
+  var element = document.getElementById("flipper-container");
+  element.classList.toggle("flipper--flipped");
+}
+</script>
 <center>
 <div>
     <h2>And Your Best Offer is?</h2>
@@ -112,19 +126,21 @@ body {
                 <div class="card-front">
                     <img src=
 "https://images.unsplash.com/photo-1565600444102-063f8a7a1e37?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=671&q=80"
-                            style="width:400px;height:240px;">
-                <form>
-    <label for="name">StarID: </label>
-    <input type="text" class="form-control" id="id" name="id">
+                            style="width:400px;height:500px;">
+                </div>
+                <div class="card-back">
+                                    <form>
+    <label for="id">StarID: </label>
+    <input type="text" class="form-control" id="id" name="id" required="required">
     <br>
     <label for="age">Age: </label>
-    <input type="text" class="form-control" id="age" name="Age">
+    <input type="text" class="form-control" id="age" name="age" required="required">
     <br>
     <label for="gender">Gender(M/F): </label>
-    <input type="text" class="form-control" id="gender" name="Gender">
+    <input type="text" class="form-control" id="gender" name="gender" required="required">
     <br>
-    <label for="phone">Frequency of visits: </label>
-    <input type="text" class="form-control" id="fre" name="fre">
+    <label for="fre">Frequency of visits: </label>
+    <input type="text" class="form-control" id="fre" name="fre" required="required">
     <br>
     <div id="wrapper">
     <label for="yes_no_radio">Are you existing member?</label>
@@ -134,12 +150,7 @@ body {
     </p>
     </div>
   </form>
-                </div>
-                <div class="card-back">
                     <h1 align="center"> {{ prediction }}</h1>
-                    <p>
-                        For Customer {{ info }}
-                    </p>
                     <a href="https://github.com/hpnightowl/CustomerSegmentation">
                         Get in touch with us!
                     </a>
